@@ -1,0 +1,30 @@
+# ---- OVI minimal text→video config (Apple Silicon / MPS) ----
+sp_size: 1
+mode: t2v
+output_dir: ./outputs
+
+# Prompt must be a STRING here (not a list)
+text_prompt: "A cinematic slow-motion shot of ocean waves at sunset, ~8 seconds"
+video_negative_prompt: ""
+audio_negative_prompt: ""
+
+# Sampler / guidance (keep modest on MPS first run)
+seed: 123
+solver_name: unipc
+sample_steps: 20
+video_guidance_scale: 4.0
+audio_guidance_scale: 3.0
+slg_layer: 11
+each_example_n_times: 1
+
+# Lower res for a first pass on MPS
+video_frame_height_width: [256, 256]
+
+# Checkpoints you downloaded
+wan_ckpt_dir: ./ckpts/Wan2.2-TI2V-5B
+wan_vae_path: ./ckpts/Wan2.2-TI2V-5B/Wan2.2_VAE.pth
+t5_encoder_path: ./ckpts/Wan2.2-TI2V-5B/models_t5_umt5-xxl-enc-bf16.pth
+
+# Tokenizer folder (matches your tree)
+tokenizer_dir: ./ckpts/Wan2.2-TI2V-5B/google/umt5-xxl
+ckpt_dir: ./ckpts

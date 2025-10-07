@@ -475,7 +475,7 @@ class T5EncoderModel:
         self,
         text_len,
         dtype=torch.bfloat16,
-        device=torch.cuda.current_device(),
+        device=(torch.device("mps") if torch.backends.mps.is_available() else torch.device("cpu")),
         checkpoint_path=None,
         tokenizer_path=None,
         shard_fn=None,

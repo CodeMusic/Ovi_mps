@@ -1,7 +1,7 @@
 <div align="center">
 <h1> Ovi: Twin Backbone Cross-Modal Fusion for Audio-Video Generation </h1>
 
-<a href="https://arxiv.org/abs/2510.01284"><img src="https://img.shields.io/badge/arXiv%20paper-2510.01284-b31b1b.svg"></a>
+<a href="https://arxiv.org/abs/2510.01284"><img src="https://img.shields.io/badge/arXiv%20paper-2509.08519-b31b1b.svg"></a>
 <a href="https://aaxwaz.github.io/Ovi/"><img src="https://img.shields.io/badge/Project_page-More_visualizations-green"></a>
 <a href="https://huggingface.co/chetwinlow1/Ovi"><img src="https://img.shields.io/static/v1?label=%F0%9F%A4%97%20Hugging%20Face&message=Model&color=orange"></a>
 
@@ -24,12 +24,10 @@
 Ovi is a veo-3 like, **video+audio generation model** that simultaneously generates both video and audio content from text or text+image inputs.
 
 - **🎬 Video+Audio Generation**: Generate synchronized video and audio content simultaneously
-  - **🎵 High-Quality Audio Branch**: We designed and pretrained our 5B audio branch from scratch using our high quality in-house audio datasets
 - **📝 Flexible Input**: Supports text-only or text+image conditioning
 - **⏱️ 5-second Videos**: Generates 5-second videos at 24 FPS, area of 720×720, at various aspect ratios (9:16, 16:9, 1:1, etc)
 - **🎬 Create videos now on wavespeed.ai**: https://wavespeed.ai/models/character-ai/ovi/image-to-video & https://wavespeed.ai/models/character-ai/ovi/text-to-video
 - **🎬 Create videos now on HuggingFace**: https://huggingface.co/spaces/akhaliq/Ovi
-- **🔧 ComfyUI Integration (WIP)**: ComfyUI support is now available via [ComfyUI-WanVideoWrapper](https://github.com/kijai/ComfyUI-WanVideoWrapper/pull/1361). Current version is functional but speed and memory usage are not yet fully optimized (will be soon! ).
 
 ---
 ## 📋 Todo List
@@ -44,8 +42,8 @@ Ovi is a veo-3 like, **video+audio generation model** that simultaneously genera
   - [ ] Improve efficiency of Sequence Parallel implementation
   - [ ] Implement Sharded inference with FSDP
 - [x] Video creation example prompts and format
-- [ ] Finetuned model with higher resolution, and RL for performance improvement. 
-- [ ] New features, such as longer video generation, reference voice condition
+- [ ] Finetuned model with higher resolution
+- [ ] Longer video generation
 - [ ] Distilled model for faster inference
 - [ ] Training scripts
 
@@ -116,8 +114,7 @@ cd ../..  # Return to Ovi directory
 ```
 
 ## Download Weights
-To download our main Ovi checkpoint, as well as T5 and vae decoder from Wan, and audio vae from MMAudio
-
+We use open-sourced checkpoints from Wan and MMAudio, and thus we will need to download them from huggingface
 ```
 # Default is downloaded to ./ckpts, and the inference yaml is set to ./ckpts so no change required
 python3 download_weights.py

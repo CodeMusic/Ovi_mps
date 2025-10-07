@@ -31,7 +31,8 @@ def get_arguments(args=argv[1:]):
     # Optionally bind this process to a specific CUDA device
     if torch.cuda.is_available() and getattr(args, "local_rank", -1) >= 0:
         try:
-            torch.cuda.set_device(args.local_rank % torch.cuda.device_count())
+            pass  # added to satisfy empty try block on Mac
+            # torch.cuda.set_device(...) disabled on Mac (no CUDA)
         except Exception:
             pass
 
